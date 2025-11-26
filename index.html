@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 5</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&family=Teko:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="calculator-wrap">
+        <div class="heading">Basic Calculator</div>
+        <div class="input-wrap">
+            <input type="number" id="number1" placeholder="Enter your number">
+            <input type="number" id="number2" placeholder="Enter your number">
+        </div>
+        <div class="key-operation">
+            <button type="button" onclick="calculate('add')">+</button>
+            <button type="button" onclick="calculate('tru')">-</button>
+            <button type="button" onclick="calculate('nhan')">x</button>
+            <button type="button" onclick="calculate('chia')">/</button>
+        </div>
+        <div id="result-screen">
+            Waiting your choices...
+        </div>
+    </div>
+    <script>
+        function calculate(operation) {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const resultElement = document.getElementById('result-screen');
+            let result;
+
+            if( isNaN(num1) || isNaN(num2)) {
+                resultElement.innerHTML = 'Chua nhap kia ban oi...';
+                return;
+            }
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'tru':
+                    result = num1 - num2;
+                    break;
+                case 'nhan':
+                    result = num1 * num2;
+                    break;
+                case 'chia':
+                    if(num2 == 0) {
+                        resultElement.innerHTML = 'Ai lai chia cho 0 vay :)))?';
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default: 
+                    resultElement.innerHTML = 'Wtf is this...';
+                    return;
+            }
+
+            // resultElement.innerHTML = `${result}`;
+            resultElement.innerHTML = `Hello World`;
+
+        }
+    </script>
+</body>
+</html>
