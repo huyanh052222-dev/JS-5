@@ -19,7 +19,7 @@
             <input type="number" id="number2" placeholder="Enter your number">
         </div>
         <div class="key-operation">
-            <button type="button" onclick="calculate('add')">+</button>
+            <button type="button" onclick="calculate('cong')">+</button>
             <button type="button" onclick="calculate('tru')">-</button>
             <button type="button" onclick="calculate('nhan')">x</button>
             <button type="button" onclick="calculate('chia')">/</button>
@@ -41,7 +41,7 @@
             }
 
             switch (operation) {
-                case 'add':
+                case 'cong':
                     result = num1 + num2;
                     break;
                 case 'tru':
@@ -62,8 +62,8 @@
                     return;
             }
 
-            // resultElement.innerHTML = `${result}`;
-            resultElement.innerHTML = `Hello World`;
+            resultElement.innerHTML = `${result}`;
+            // resultElement.innerHTML = `Hello World`;
 
         }
     </script>
